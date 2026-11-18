@@ -36,7 +36,7 @@ public class Constant extends Atom{
     }
 
     @Override 
-    public SymbolicExpression eval(Enviroment enviroment){
+    public SymbolicExpression eval(Environment enviroment){
         return this;
     }
 

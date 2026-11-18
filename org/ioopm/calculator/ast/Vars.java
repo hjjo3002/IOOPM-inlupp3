@@ -7,4 +7,9 @@ public class Vars extends Command{
     public static Vars instance() {
         return theInstance;
     }
+
+    @Override 
+    public boolean isVars(){
+        return true;
+    }
 }

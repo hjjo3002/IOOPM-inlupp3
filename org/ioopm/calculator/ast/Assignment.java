@@ -17,9 +17,13 @@ public class Assignment extends Binary{
     }
 
     @Override 
-    public SymbolicExpression eval(Enviroment enviroment){
+    public SymbolicExpression eval(Environment enviroment){
         SymbolicExpression lhs = this.getLhs().eval(enviroment);
         SymbolicExpression rhs = this.getRhs();
+
+        if(rhs.isNamedConstant()){
+            throw new IllegalAssignmentException("Error: Cannot be a named Constant");
+        }
 
         if(rhs.isVariable()){
             Variable rhsVariable = (Variable) rhs;
@@ -28,6 +32,6 @@ public class Assignment extends Binary{
             //System.out.println("rhs = "+rhs);
             return lhs;
         }
-        throw new RuntimeException("Must be variable on right hand side!");
+        throw new RuntimeException("Error: Must be variable on right hand side!");
     }
 }

@@ -18,7 +18,7 @@ public class Subtraction extends Binary{
     }
 
     @Override 
-    public SymbolicExpression eval(Enviroment enviroment){
+    public SymbolicExpression eval(Environment enviroment){
         SymbolicExpression lhs = this.getLhs().eval(enviroment);
         SymbolicExpression rhs = this.getRhs().eval(enviroment);
 

@@ -17,7 +17,7 @@ public class Addition extends Binary{
     }
 
     @Override 
-    public SymbolicExpression eval(Enviroment enviroment){
+    public SymbolicExpression eval(Environment enviroment){
         SymbolicExpression lhs = getLhs().eval(enviroment);
         SymbolicExpression rhs = getRhs().eval(enviroment);
 

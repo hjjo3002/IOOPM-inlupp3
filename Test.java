@@ -10,7 +10,7 @@ public class Test{
         }
     }
 
-    public static void testEvaluating(SymbolicExpression expected, SymbolicExpression e, Enviroment enviroment) {
+    public static void testEvaluating(SymbolicExpression expected, SymbolicExpression e, Environment enviroment) {
         SymbolicExpression r = e.eval(enviroment);
         if (r.equals(expected)) {
             System.out.println("Passed: " + e);
@@ -64,7 +64,7 @@ public class Test{
 
     SymbolicExpression d3 = new Division(new Constant(10), new Constant(2));
 
-    Enviroment env = new Enviroment();
+    Environment env = new Environment();
 
     testEvaluating(c3, c3, env);
     testEvaluating(c3, a3, env); // Tests if reducing a3 returns c3
@@ -113,5 +113,32 @@ public class Test{
     System.out.println("v3 = " + v3.hashCode() + "\nv5 = " + v5.hashCode());
 
     System.out.println(env);
+
+
+
+
+    System.out.println("---Named constant---");
+
+    SymbolicExpression PI = new Variable("pi");
+    SymbolicExpression ans = new Variable("answer");
+
+    testEvaluating(new Constant(Math.PI), PI, env);
+
+    System.out.println(PI.isNamedConstant());
+
+
+    SymbolicExpression a7 = new Addition(ans, ans);
+
+    testEvaluating(c3, ans, env);
+    testEvaluating(new Constant(84), a7, env);
+    
+    SymbolicExpression E = new NamedConstant("e", Math.E);
+    System.out.println(E.isNamedConstant());
+
+    //SymbolicExpression EisNotTwo = new Assignment(new Constant(2), E);
+    //testEvaluating(new Constant(2), EisNotTwo, env); should return a illegal assignment exception. 
+
+    
+
     }
 }

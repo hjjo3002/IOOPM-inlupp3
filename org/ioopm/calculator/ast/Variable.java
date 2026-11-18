@@ -27,7 +27,16 @@ public class Variable extends Atom{
     }
 
     @Override 
-    public SymbolicExpression eval(Enviroment enviroment){
+    public SymbolicExpression eval(Environment enviroment){
+        String a = this.toString();
+
+        if(Constants.namedConstants.containsKey(this.toString())){
+
+            double res = Constants.namedConstants.get(this.toString());
+            SymbolicExpression resRym = new NamedConstant(a,res);
+            System.out.println(resRym);
+            return resRym;
+        }
 
         if(enviroment.containsKey(this)){
             SymbolicExpression value = enviroment.get(this);

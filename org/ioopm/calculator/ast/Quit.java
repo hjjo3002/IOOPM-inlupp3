@@ -7,5 +7,10 @@ public class Quit extends Command{
     public static Quit instance() {
         return theInstance;
     }
+
+    @Override 
+    public boolean isQuit(){
+        return true;
+    }
     
 }

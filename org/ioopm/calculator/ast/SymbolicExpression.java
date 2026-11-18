@@ -26,11 +26,27 @@ public abstract class SymbolicExpression{
         throw new RuntimeException("nothing to stringify");
     }
 
-    public abstract SymbolicExpression eval(Enviroment enviroment);
+    public abstract SymbolicExpression eval(Environment enviroment);
 
     public boolean isCommand(){
         return false;
     }
+
+    public boolean isNamedConstant(){
+        return false;
+    }
+
+    
+    public boolean isQuit(){
+        return false;
+    }
+    public boolean isVars(){
+        return false;
+    }
+    public boolean isClear(){
+        return false;
+    }
+
 
     
 } 

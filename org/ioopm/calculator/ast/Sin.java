@@ -12,7 +12,7 @@ public class Sin extends Unary{
     }
 
     @Override 
-    public SymbolicExpression eval(Enviroment enviroment) {
+    public SymbolicExpression eval(Environment enviroment) {
         SymbolicExpression lhs = this.getLhs().eval(enviroment);
         if (lhs.isConstant()) {
             return new Constant(Math.sin(lhs.getValue()));
